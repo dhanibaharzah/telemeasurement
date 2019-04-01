@@ -1,0 +1,121 @@
+BEBERAPA CATATAN PENTING DALAM PENELITIAN TA SAYA
+Waktu yang digunakan adalah waktu pada laptop
+
+=================================================================================
+PERCOBAAN 1 (26/12/2017, 12.30 @Rumah Bekasi)
+--------------------------------------------------------------------------------
+FAKTA YANG DIDAPAT
+1. Tegangan yang dimasukkan pada GPS dan MQ7 harus 5V
+2. Sudah lebih dari 10 menit GPS belum aktif, saya mencoba memancing tegangan         dengan cara menghubungkan VCC GPS ke GND GPS, pancingan tak berhasil
+2. Waktu pemanasan (sampai GPS aktif) 18,5 menit (1110 s) dari awal pemasukan         tegangan (paralel dengan sensor)
+3. Pada pukul 13:10 terjadi missvoltage pada detik ke 195 
+   setelah GPS aktif
+4. Terjadi missvoltage kembali pada pukul 13.40
+5. Device dinyalakan kembali pukul 13.42 dengan keadaan mencabut MQ7
+6. Waktu yang dibutuhkan sampai GPS aktif hanya 15 s
+6. Percobaan dilakukan sampai 15 menit
+7. Percobaan selesai pukul 13.57, tidak ada missvoltage. 
+   Posisi Lintang : -6.28485
+   Posisi Bujur   : 107.0081
+   Ketinggian     : 57.80 mdpl
+   Kadar CO       : 0 ppm
+   Kategori       : AMAN
+8. percobaan dimulai lagi jam 18.00 (bakda maghrib)
+
+SIMPULAN PERCOBAAN 1
+1. waktu yang dibutuhkan sampai GPS aktif cukup lama, beberapa hal yang dicurigai:
+   a. Input diperuntukkan 2 device, GPS dan MQ7.
+   b. tegangan tetap tapi arus terbagi krn tidak sesuai pada spesifikasi device       seharusnya (sementara, masing device adalah 500 mA)
+2. Missvoltage terjadi karena ketidakseimbangan arus yang terjadi, daya yang          didapat tidak mampu menyuplai keseluruhan isi sistem, sehingga yang membuat        alat menjadi mati sebentar, kemudian nyala kembali, kemudian mati lagi (hanya      terjadi pada GPS)
+
+REKOMENDASI UNTUK PERCOBAAN SELANJUTNYA
+1. Fokus pada GPS terlebih dahulu, cari tahu fiksasi waktu yang dibutuhkan untuk      GPS sampai aktif
+2. Suplai tegangan dan arus dibuat terpisah saja masing masing, agar tidak terjadi    ketidakseimbangan sistem kelistrikan
+
+=================================================================================
+PERCOBAAN 2 (27/12/2017, 5.01 @Rumah Bekasi)
+---------------------------------------------------------------------------------
+fAKTA YANG DIDAPAT
+1.  Tegangan masukan hanya untuk GPS 5V
+2.  Tanpa diperlakukan aksi aksi pancingan, GPS aktif di menit ke 8 (480 s)
+3.  GPS diaktifkan selama 15 menit sejak jam 5.11
+4.  alat dimatikan pukul 5.26
+5.  alat dinyalakan kembali pkl 5.41, dibutuhkan waktu 32 s sampai GPS aktif
+6.  GPS diaktifkan selama 10 menit alat dimatikan pukul 5.51
+7.  Mencoba menyalakan alat kembali pukul 5.52 dengan tegangan masukan 3,3V
+8.  alat dinyalakan kembali pkl 5.52, dibutuhkan waktu 18 s sampai GPS aktif
+9.  missvoltage pkl 5.53
+10. menyala lagi pkl 5.55 setelah tegangan langsung 3.3V diberikan
+11. alat dibiarkan menyala sampai 15 menit
+12. alat istirahat 5 menit
+13. alat dinyalakan kembali pkl 6.17, GPS dan MQ7 diaktifkan semua, input terpisah     dari arduino, MQ7 5V dan GPS 3,3V, waktu respon 32 s.
+14. alat dibiarkan menyala selama 15 menit
+15. percobaan selesai pukul 6.35, tidak ada missvoltage
+    Posisi Lintang : -6.28481
+    Posisi Bujur   : 107.00822
+    Ketinggian     : 57.80 mdpl
+    Kadar CO       : 25 ppm
+    Kategori       : AMAN
+16. percobaan kembali dilakukan besok (28/12/2017, pukul 5.30)
+
+SIMPULAN PERCOBAAN 2
+1. tegangan masukan sangat mempengaruhi respon timing dari alat, spesifikasi          tegangan GPS = 3,3V, tegangan MQ7 = 5V
+2. terjadi missvoltage karena kabel masukan tidak terpanjar langsung melalui          tegangan dari arduino, sehingg menjadikan error dan ketidakseimbangan sistem       kelistrikan 
+3. Belum bisa menemukan fiksasi respon timing dari aktifnya GPS, karena saya       langsung menghubungkan semua sistem, akan dicoba pada percobaan selanjutnya,       ketika semua sistem telah terhubung
+
+REKOMENDASI UNTUK PERCOBAAN SELANJUTNYA
+1. mencari fiksasi respon timing dari keseluruhan sistem, terutama dari GPS,    karena jika GPS terbaca, keseluruhan display akan terbaca
+
+==================================================================================
+PERCOBAAN 2 (06/01/2018, 5.32 @Sekre KAMMDA)
+----------------------------------------------------------------------------------
+FAKTA YANG DIDAPAT
+1.  Alat sudah tidak dinyalakan selama 9 hari
+2.  Tegangan masukan untuk GPS = 3,3V, MQ7= 5V, NodeMCU= USB power
+3.  alat dinyalakan pukul 5.32
+4.  Sistem aktif (pengukuran terbaca, GPS menyala) tercapai ketika di detik 112
+5.  tidak ada gangguan dalam sistem, tidak ada missvoltage
+6.  hanya terjadi anomali pengukuran yang tak terasa oleh saya, ruangan saya yang      diukur langsung menunjukkan indikator bahaya dengan kadar CO 31 ppm butuh     waktu 13 menit untuk normalisasi keadaaan (dari 31 ppm ke 27 ppm) padahal     seharusnya keadaan yang terjadi adalah keadaan normal (26-28 ppm)
+7.  saya mencurigai sensitivitas alat pengukur
+8.  alat dinyalakan selama 55 menit
+9.  percobaan selesai pukul 6.27, tidak ada gangguan pada sistem 
+    Posisi Lintang : -7.04761
+    Posisi Bujur   : 110.41607
+    Ketinggian     : 237.40 mdpl
+    Kadar CO       : 29 ppm
+    Kategori       : AMAN
+10. Percobaan dilakukan kembali seperlunya (ketika kalibrasi)
+
+SIMPULAN PERCOBAAN 3
+1. Hingga saat ini waktu fiksasi yang dibutuhkan oleh alat untuk aktif (setelah    lama tidak dinyalakan) berkisar 5-8 menit
+2. Sistem distribusi arus dan tegangan sudah seimbang karena tidak ada gangguan    yan terjadi pada proses pengukuran
+3. MQ7 dapa dengan baik mengukur meskipun perlu dikaji ulang tentang    sensitvitasnya
+
+REKOMENDASI PERCOBAAN SELANJUTNYA
+1. Uji waktu respon timing alat lagi
+2. kalibrasikan MQ7 dengan mengkomparasi alat pengukur CO komersil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
